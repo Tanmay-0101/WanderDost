@@ -1,0 +1,130 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h3>Edit Listing</h3>
+            <br>
+            <form method="post" action="/listings/<%=edtListing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label"><b>Title</b></label>
+                    <input type="text" class="form-control" name="listing[title]" value="<%=edtListing.title%>" required>
+                    <div class="valid-feedback">Title looks good!</div>
+                </div>    
+        
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Description</b></label>
+                    <textarea type="text" class="form-control" name="listing[description]" required><%=edtListing.description%></textarea>
+                    <div class="valid-feedback">Description looks good!</div> 
+                </div>
+
+                <div class="mb-3">
+                    Original Image <br>
+                    <img src="<%=ogImageUrl%>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label"><b>Upload New Image</b></label>
+                    <input type="file" class="form-control" name="listing[image]">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-5">
+                        <label for="location" class="form-label"><b>Location</b></label>
+                        <input type="text" class="form-control" name="listing[location]" value="<%=edtListing.location%>" required>
+                        <div class="invalid-feedback">Location is invalid</div>
+                    </div>
+    
+                    <div class="mb-3 col-md-5">
+                        <label for="country" class="form-label"><b>Country</b></label>
+                        <input type="text" class="form-control" name="listing[country]" value="<%=edtListing.country%>" required>
+                        <div class="invalid-feedback">Country is invalid</div>
+                    </div>
+
+                    <div class="mb-3 col-md-2">
+                        <label for="categories" class="form-label"><b>Categories</b></label>
+                        <div>
+                            <button
+                                class="btn dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                            Select
+                            </button>
+                            <ul class="dropdown-menu p-3">
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="mountains" 
+                                    id="mountains" <%= edtListing.categories.includes('mountains') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="mountains">Mountains</label>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="swimming_pool" 
+                                    id="swimming_pool" <%= edtListing.categories.includes('swimming_pool') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="swimming_pool">Swimming Pool</label>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="beach" 
+                                    id="beach" <%= edtListing.categories.includes('beach') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="beach">Beach</label>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="river_side" 
+                                    id="river_side" <%= edtListing.categories.includes('river_side') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="river_side">River-Side</label>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="iconic_cities" 
+                                    id="iconic_cities" <%= edtListing.categories.includes('iconic_cities') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="iconic_cities">Iconic Cities</label>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="camping" 
+                                    id="camping" <%= edtListing.categories.includes('camping') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="camping">Camping</label>
+                                </div>
+                                </li>
+                                <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" 
+                                    name="listing[categories][]" value="farms" 
+                                    id="farms" <%= edtListing.categories.includes('farms') ? 'checked' : '' %>>
+                                    <label class="form-check-label" for="farms">Farms</label>
+                                </div>
+                                </li>
+                            </ul>
+                        </div>    
+                        <div class="invalid-feedback">Please select at least one category.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label"><b>Price</b></label>
+                    <input type="number" class="form-control" name="listing[price]" value="<%=edtListing.price%>" required>
+                    <div class="invalid-feedback">Please enter valid price</div>
+                </div>    
+                <br><br>
+                <button class="btn btn-dark add">Edit</button>
+                <br><br>
+            </form>
+        </div>
+    </div>
+    
+</body>
