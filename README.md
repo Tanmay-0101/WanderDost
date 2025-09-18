@@ -64,8 +64,8 @@ It provides an intuitive interface, secure authentication, rich media support, a
 ---
 
 ### Deployment
-**Frontend + Backend**: Hosted on Render
-**Database**: Hosted on MongoDB Atlas
+- **Frontend + Backend**: Hosted on Render
+- **Database**: Hosted on MongoDB Atlas
 
 ## Author
 Tanmay Tyagi – [GitHub](https://github.com/Tanmay-0101)
